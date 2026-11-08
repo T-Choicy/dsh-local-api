@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "本地 API 开关",
+    "description": "在侧栏底部管理独立的 GPT 与 GLM 本地 API 守护进程：实时状态、一键启停、轮询 /healthz；退出 Harness 不会停掉服务，也不会弹出控制台窗口。"
+  }
+}

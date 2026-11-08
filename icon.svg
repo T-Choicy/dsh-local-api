@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="GLM Local API">
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="#3859FF"/>
+  <circle cx="24" cy="27" r="9" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="40 17" transform="rotate(-90 24 27)"/>
+  <path d="M24 12.5v8.5" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round"/>
+</svg>

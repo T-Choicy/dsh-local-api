@@ -1,0 +1,13 @@
+# Bundle entry for dsh-local-api.
+# Paths are intentionally empty: the two services are installed by the user, and
+# their locations are entered once in the sidebar panel (persisted under
+# ~/.dsh/dsh-local-api/settings.json) or filled in here.
+- insert:
+    - id: dsh-local-api
+      name: dsh-local-api
+      config:
+        exePath: ''
+        port: 18081
+        gptExePath: ''
+        gptScriptPath: ''
+        gptPort: 18080

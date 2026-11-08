@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Local API switches",
+    "description": "Sidebar switches for the standalone GPT and GLM local API daemons: live status, one-click start/stop, /healthz polling, no console window, and quitting Harness never stops the services."
+  }
+}
