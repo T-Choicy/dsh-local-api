@@ -1,50 +1,50 @@
-﻿{
-    "name":  "dsh-local-api",
-    "version":  "0.3.0",
-    "description":  "Two sidebar switches for standalone local API daemons (GPT and GLM): live status, start, stop, hidden launcher, no console window.",
-    "license":  "MIT",
-    "type":  "module",
-    "main":  "lib/index.js",
-    "icon":  "./icon.svg",
-    "exports":  {
-                    ".":  "./lib/index.js",
-                    "./client":  "./lib/client.js",
-                    "./icon":  "./icon.svg",
-                    "./package.json":  "./package.json",
-                    "./cordis.patch.yml":  "./cordis.patch.yml",
-                    "./locale/*.json":  "./locale/*.json"
-                },
-    "files":  [
-                  "lib",
-                  "locale",
-                  "icon.svg",
-                  "cordis.patch.yml",
-                  "README.md",
-                  "LICENSE",
-                  "docs"
-              ],
-    "keywords":  [
-                     "dsh",
-                     "dsh-plugin",
-                     "deepseek-harness",
-                     "cordis",
-                     "local-api",
-                     "glm",
-                     "gpt",
-                     "openai",
-                     "codex",
-                     "zcode"
-                 ],
-    "peerDependencies":  {
-                             "@deepseek-ai/schemastery":  "*"
-                         },
-    "dsh":  {
-                "client":  {
-                               "platform":  "web",
-                               "immediately":  true
-                           },
-                "bundle":  {
-                               "patch":  "./cordis.patch.yml"
-                           }
-            }
+{
+  "name": "dsh-local-api",
+  "version": "0.3.0",
+  "description": "Two sidebar switches for standalone local API daemons (GPT and GLM): live status, start, stop, hidden launcher, no console window.",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "icon": "./icon.svg",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib",
+    "locale",
+    "docs",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "local-api",
+    "glm",
+    "gpt",
+    "openai",
+    "codex",
+    "zcode"
+  ],
+  "peerDependencies": {
+    "@deepseek-ai/schemastery": "*"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web",
+      "immediately": true
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  }
 }
