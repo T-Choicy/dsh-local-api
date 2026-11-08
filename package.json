@@ -35,6 +35,14 @@
     "codex",
     "zcode"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/T-Choicy/dsh-local-api.git"
+  },
+  "homepage": "https://github.com/T-Choicy/dsh-local-api#readme",
+  "bugs": {
+    "url": "https://github.com/T-Choicy/dsh-local-api/issues"
+  },
   "peerDependencies": {
     "@deepseek-ai/schemastery": "*"
   },

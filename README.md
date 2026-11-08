@@ -63,7 +63,9 @@ dsh-local-api/
 ├─ lib/index.js        # host half: probe, start, stop, settings, same-origin route
 ├─ lib/client.js       # web half: two switches in sidebar.footer.action
 ├─ locale/{en,zh}.json # plugin list metadata
+├─ docs/preview.png    # the sidebar footer, as rendered
 ├─ icon.svg
+├─ LICENSE
 └─ README.md
 ```
 
