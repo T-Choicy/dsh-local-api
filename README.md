@@ -61,8 +61,10 @@ plugin_manager install_bundle C:\path\to\dsh-local-api
 在 **插件 → 发现（Discover）→ 索引源 → 添加索引源**，填入：
 
 ```
-https://raw.githubusercontent.com/T-Choicy/dsh-local-api/main/market/index.json
+https://t-choicy.github.io/dsh-local-api/market/index.json
 ```
+
+（需要仓库先在 **Settings → Pages** 里开启 Pages：*Deploy from a branch* → `main` → `/ (root)`。不开 Pages 也可以用 raw 地址：`https://raw.githubusercontent.com/T-Choicy/dsh-local-api/main/market/index.json`，但部分网络环境直连 raw.githubusercontent.com 会被重置。）
 
 索引里当前是 0.3.0，来源为**锁定了 commit 的 GitHub 仓库**（`source.type: git`），因此不依赖 npm 也能装：
 
