@@ -80,17 +80,17 @@
           "local-api"
         ],
         "sortKeys": {
-          "updated": 1794196514
+          "updated": 1794201641
         }
       },
       "versions": [
         {
-          "version": "0.4.1",
-          "publishTimestamp": 1794196514,
+          "version": "0.4.2",
+          "publishTimestamp": 1794201641,
           "source": {
             "type": "git",
             "url": "https://github.com/T-Choicy/dsh-local-api",
-            "commit": "10601d1562a82cec3a6f2cf2afebb9f75675608f"
+            "commit": "f2db2dfeefa39201c2b3fef12ac082e98d57cd47"
           },
           "engines": {}
         }
