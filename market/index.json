@@ -1,0 +1,100 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Local API Switches",
+    "zh": "本地 API 开关"
+  },
+  "description": {
+    "en": "Sidebar switches that start and stop local OpenAI/Anthropic-compatible API daemons (GLM via ZCode, GPT via Codex) and show their live health.",
+    "zh": "侧栏开关：启停本机 OpenAI/Anthropic 兼容的 API 守护进程（GLM 走 ZCode、GPT 走 Codex），并实时显示健康状态。"
+  },
+  "metadata": {
+    "categories": {
+      "dev": {
+        "title": {
+          "en": "Developer Tools",
+          "zh": "开发工具"
+        }
+      },
+      "tools": {
+        "title": {
+          "en": "Tools",
+          "zh": "工具"
+        }
+      }
+    },
+    "labels": {
+      "windows": {
+        "title": {
+          "en": "Windows",
+          "zh": "Windows"
+        }
+      },
+      "local-api": {
+        "title": {
+          "en": "Local API",
+          "zh": "本地 API"
+        }
+      }
+    },
+    "sortKeys": {
+      "updated": {
+        "title": {
+          "en": "Updated",
+          "zh": "更新时间"
+        },
+        "order": "desc"
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-local-api",
+      "title": {
+        "en": "Local API Switches",
+        "zh": "本地 API 开关"
+      },
+      "description": {
+        "en": "Two sidebar switches for local API daemons: live health, start, stop, no console window, and the services keep running after DSH exits.",
+        "zh": "侧栏两枚开关管理本机 API 守护进程：实时健康、一键启停、不弹窗，退出 DSH 后服务继续运行。"
+      },
+      "icon": "https://raw.githubusercontent.com/T-Choicy/dsh-local-api/main/icon.svg",
+      "author": "T-Choicy",
+      "homepage": "https://github.com/T-Choicy/dsh-local-api",
+      "repository": {
+        "url": "https://github.com/T-Choicy/dsh-local-api"
+      },
+      "metadata": {
+        "category": "dev",
+        "keywords": [
+          "local-api",
+          "glm",
+          "gpt",
+          "openai",
+          "codex",
+          "zcode",
+          "switch"
+        ],
+        "labels": [
+          "windows",
+          "local-api"
+        ],
+        "sortKeys": {
+          "updated": 1794240000
+        }
+      },
+      "versions": [
+        {
+          "version": "0.3.0",
+          "publishTimestamp": 1794240000,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/T-Choicy/dsh-local-api",
+            "commit": "352be9b96c5f18ac5ac666e028bb88a8b7aaabad"
+          },
+          "engines": {}
+        }
+      ]
+    }
+  ]
+}
