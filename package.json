@@ -18,6 +18,7 @@
     "lib",
     "locale",
     "services",
+    "!services/**/*.log",
     "docs",
     "icon.svg",
     "cordis.patch.yml",
