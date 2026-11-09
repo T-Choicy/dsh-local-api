@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "dsh-local-api",
   "version": "0.4.1",
   "description": "Two sidebar switches for local API daemons (GPT and GLM): bundled binaries, live status, start, stop, hidden launcher, no console window.",
