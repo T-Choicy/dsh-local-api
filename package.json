@@ -1,7 +1,7 @@
 {
   "name": "dsh-local-api",
-  "version": "0.3.0",
-  "description": "Two sidebar switches for standalone local API daemons (GPT and GLM): live status, start, stop, hidden launcher, no console window.",
+  "version": "0.4.0",
+  "description": "Two sidebar switches for local API daemons (GPT and GLM): bundled binaries, live status, start, stop, hidden launcher, no console window.",
   "license": "MIT",
   "type": "module",
   "main": "lib/index.js",
@@ -17,6 +17,7 @@
   "files": [
     "lib",
     "locale",
+    "services",
     "docs",
     "icon.svg",
     "cordis.patch.yml",

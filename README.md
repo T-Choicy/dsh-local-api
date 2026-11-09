@@ -31,7 +31,24 @@ CHEN-SM
 
 - 支持第三方插件（Cordis bundle）的 DeepSeek Harness。
 - Windows（进程发现用 CIM，GPT 的启动器是 PowerShell）。
-- 两个服务各自另行安装。本仓库**不带**任何二进制、也不带服务配置，路径由使用者自己填。
+- 两个服务的可执行文件与启动脚本**随插件一起分发**（见下一节），不需要单独下载；但服务运行所需的登录凭据与 `config.toml` 仍由各自的服务放在用户目录里。
+
+## 自带的服务
+
+`services/` 下就是两个服务的本体，插件默认直接使用包内这两份，安装后无需再填路径。
+
+| 服务 | 文件 | 大小 | 版本 | 许可 |
+| --- | --- | --- | --- | --- |
+| GPT | `services/gpt/openai-api-server-via-codex.exe` + `Start-Server.ps1` | 8.6 MB | 0.2.3 | Apache-2.0 |
+| GLM | `services/glm/glm-api-server-via-zcode.exe` + `Start-Server.ps1` | 7.6 MB | 0.1.0 | MIT |
+
+第三方许可原文分别放在 `services/gpt/LICENSE` 与 `services/glm/LICENSE`；GPT 服务源码见 [hotchpotch/openai-api-server-via-codex](https://github.com/hotchpotch/openai-api-server-via-codex)。GLM 服务目前没有公开仓库，`services/glm/checksums.txt` 保留了它发布包里的 sha256（`3e75d090…`）。
+
+下面这些**不**在仓库里，也不应该提交，它们属于使用者本机：
+
+- GLM：`%USERPROFILE%\.config\glm-api-server-via-zcode\config.toml`、同目录 `run\`、ZCode 凭据 `%USERPROFILE%\.zcode\v2\credentials.json`
+- GPT：`%USERPROFILE%\.config\openai-api-server-via-codex\config.toml`、同目录 `run\`、Codex 凭据 `%USERPROFILE%\.codex\auth.json`
+- GPT 依赖的 `127.0.0.1:7890` 代理（由 `Start-Server.ps1` 设置环境变量，代理软件本身另行安装）
 
 ## 安装
 
@@ -42,17 +59,17 @@ CHEN-SM
 plugin_manager install_bundle C:\path\to\dsh-local-api
 ```
 
-安装后刷新一次 Harness 页面，然后在侧栏任一行打开面板填写路径：
+安装后刷新一次 Harness 页面，两个开关就会出现在侧栏底部。默认路径已经指向包内 `services/` 下的两份服务，**通常不需要填任何东西**；只有想改用别的副本时才在面板里覆盖：
 
-| 设置项 | 含义 |
-| --- | --- |
-| `exePath` | GLM 服务可执行文件（`glm-api-server-via-zcode.exe`） |
-| `port` | GLM 端口，默认 `18081` |
-| `gptExePath` | GPT 服务可执行文件（`openai-api-server-via-codex.exe`） |
-| `gptScriptPath` | 它的启动脚本（`Start-Server.ps1`） |
-| `gptPort` | GPT 端口，默认 `18080`，需与该服务 `config.toml` 中的端口一致 |
+| 设置项 | 含义 | 默认值 |
+| --- | --- | --- |
+| `exePath` | GLM 服务可执行文件 | 包内 `services/glm/glm-api-server-via-zcode.exe` |
+| `port` | GLM 端口 | `18081` |
+| `gptExePath` | GPT 服务可执行文件 | 包内 `services/gpt/openai-api-server-via-codex.exe` |
+| `gptScriptPath` | 它的启动脚本 | 包内 `services/gpt/Start-Server.ps1` |
+| `gptPort` | GPT 端口 | `18080`，需与该服务 `config.toml` 中的端口一致 |
 
-这五个键同时也存在于插件配置（`cordis.patch.yml`）里，可以在安装时直接给出；面板里填的值优先，并保存在 `~/.dsh/dsh-local-api/` 下。
+如果覆盖的路径在磁盘上不存在，插件会**回退到包内自带的那一份**，而不是直接报「找不到文件」。这五个键同时也存在于插件配置（`cordis.patch.yml`）里；面板里填的值优先，并保存在 `~/.dsh/dsh-local-api/` 下。
 
 ## 从插件市场安装
 
@@ -90,9 +107,11 @@ pnpm publish --access public   # 之后每次先改 version 再发
 ```
 dsh-local-api/
 ├─ package.json        # dsh.client（web）与 dsh.bundle（patch）
-├─ cordis.patch.yml    # bundle 入口；路径默认全部留空
+├─ cordis.patch.yml    # bundle 入口；路径默认指向包内 services/
 ├─ lib/index.js        # Host 半：探活、启停、设置、同源路由
 ├─ lib/client.js       # Web 半：sidebar.footer.action 里的两个开关
+├─ services/gpt/       # GPT 服务本体（exe + Start-Server.ps1 + 许可）
+├─ services/glm/       # GLM 服务本体（exe + Start-Server.ps1 + 许可）
 ├─ locale/{en,zh}.json # 插件列表里的元数据
 ├─ market/index.json   # 插件市场索引（format 1），可直接作为索引源
 ├─ docs/preview.png    # 侧栏底部的实际渲染
@@ -115,4 +134,9 @@ Web 半是一个普通的 `__ModuleLoader__` bundle，只注册**一个** `sideb
 
 ## 许可证
 
-MIT，见 [LICENSE](LICENSE)。
+插件本身 MIT，见 [LICENSE](LICENSE)。
+
+`services/` 下两个服务各有自己的许可，打包分发时一并保留：
+
+- `services/gpt/`：Apache-2.0，来自 [openai-api-server-via-codex](https://github.com/hotchpotch/openai-api-server-via-codex) 0.2.3 windows_amd64 发布包
+- `services/glm/`：MIT，来自 `glm-api-server-via-zcode` 0.1.0 windows_amd64 发布包
