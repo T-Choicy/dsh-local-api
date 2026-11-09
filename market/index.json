@@ -55,8 +55,8 @@
         "zh": "本地 API 开关"
       },
       "description": {
-        "en": "Two sidebar switches for local API daemons: live health, start, stop, no console window, and the services keep running after DSH exits.",
-        "zh": "侧栏两枚开关管理本机 API 守护进程：实时健康、一键启停、不弹窗，退出 DSH 后服务继续运行。"
+        "en": "Two sidebar switches for local API daemons, with both services bundled: live health, start, stop, no console window, and the services keep running after DSH exits.",
+        "zh": "侧栏两枚开关管理本机 API 守护进程（两个服务已随插件打包）：实时健康、一键启停、不弹窗，退出 DSH 后服务继续运行。"
       },
       "icon": "https://raw.githubusercontent.com/T-Choicy/dsh-local-api/main/icon.svg",
       "author": "T-Choicy",
@@ -80,17 +80,17 @@
           "local-api"
         ],
         "sortKeys": {
-          "updated": 1794240000
+          "updated": 1794196514
         }
       },
       "versions": [
         {
-          "version": "0.3.0",
-          "publishTimestamp": 1794240000,
+          "version": "0.4.1",
+          "publishTimestamp": 1794196514,
           "source": {
             "type": "git",
             "url": "https://github.com/T-Choicy/dsh-local-api",
-            "commit": "352be9b96c5f18ac5ac666e028bb88a8b7aaabad"
+            "commit": "10601d1562a82cec3a6f2cf2afebb9f75675608f"
           },
           "engines": {}
         }

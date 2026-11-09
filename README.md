@@ -71,6 +71,16 @@ plugin_manager install_bundle C:\path\to\dsh-local-api
 
 如果覆盖的路径在磁盘上不存在，插件会**回退到包内自带的那一份**，而不是直接报「找不到文件」。这五个键同时也存在于插件配置（`cordis.patch.yml`）里；面板里填的值优先，并保存在 `~/.dsh/dsh-local-api/` 下。
 
+## 升级
+
+Host 半的模块在 Harness 进程里只加载一次，**改完包内容要重启一次 Harness** 才会生效（只做「停用/启用」仍会复用旧模块）。
+
+在 Windows 上从本地链接版换成 npm/git 版时，`node_modules/dsh-local-api` 可能还是一个指向源码目录的链接，pnpm 会报 `EPERM ... rename`。先删链接再装：
+
+```powershell
+cmd /c rmdir "$env:USERPROFILE\.dsh\profiles\desktop\node_modules\dsh-local-api"
+```
+
 ## 从插件市场安装
 
 本仓库自带一份市场索引（`market/index.json`，`format: 1`），任何人都可以把它加进 DSH 的插件市场，然后像装其他插件一样点「安装」。
@@ -83,7 +93,7 @@ https://t-choicy.github.io/dsh-local-api/market/index.json
 
 （需要仓库先在 **Settings → Pages** 里开启 Pages：*Deploy from a branch* → `main` → `/ (root)`。不开 Pages 也可以用 raw 地址：`https://raw.githubusercontent.com/T-Choicy/dsh-local-api/main/market/index.json`，但部分网络环境直连 raw.githubusercontent.com 会被重置。）
 
-索引里当前是 0.3.0，来源为**锁定了 commit 的 GitHub 仓库**（`source.type: git`），因此不依赖 npm 也能装：
+索引里当前是 0.4.1（服务本体已随包分发），来源为**锁定了 commit 的 GitHub 仓库**（`source.type: git`），因此不依赖 npm 也能装：
 
 ```
 git+https://github.com/T-Choicy/dsh-local-api.git#<commit>
